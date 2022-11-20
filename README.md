@@ -46,43 +46,72 @@ If the control input changes to AB = 10, then all the gates are restricted excep
 
  
  
-### Procedure
-/* write all the steps invloved */
+## Procedure
+Step 1: Open Quartus II and select new project . Open new file at the verilog.
 
+Step 2: Module Declaration. Module should have the file name.
 
+Step 3: Input-Output Delecaration.
+
+Step 4: Use wire to define the functionality of logic circuits.
+
+Step 5: End the module.
+
+Step 6: Run the program and choose RTL viewer to get RTL realization.
 
 ### PROGRAM 
-/*
+```
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: Haridharshini S
+RegisterNumber: 212221230022 
+```
+## MULTIPLEXER:
+```
+module mux(i0,i1,i2,i3,s0,s1,y);
+input i0,i1,i2,i3,s0,s1;
+output y;
+wire p,q,r,s,s0c,s1c;
+not(s0c,s0);
+not(s1c,s1);
+and(p,s0c,s1c,i0);
+and(q,s0c,s1,i1);
+and(r,s0,s1c,i2);
+and(s,s0,s1,i3);
+or(y,p,q,r,s);
+endmodule    
+```
+## RTL LOGIC  
+![1](https://user-images.githubusercontent.com/94168395/202906947-2a430a4a-0056-4b31-a780-028e13e60b74.png)
 
+## TIMING DIGRAMS  
+![3](https://user-images.githubusercontent.com/94168395/202906958-647224f1-796f-43ba-8c92-742467a0ad68.png)
 
+## TRUTH TABLE 
+![5](https://user-images.githubusercontent.com/94168395/202906969-57bcf509-a92b-4b90-9128-bfb2b3567fa4.png)
 
+## DEMULTIPLEXER:
+```
+module mux(y0,y1,y2,y3,s0,s1,i);
+input s0,s1,i;
+output y0,y1,y2,y3;
+wire s0c,s1c;
+nor(s0c,s0);
+nor(s1c,s1);
+and(y0,i,s0c,s1c);
+and(y1,i,s0c,s1);
+and(y2,i,s0,s1c);
+and(y3,i,s0,s1);
+endmodule
+```
+## RTL LOGIC  
+![2](https://user-images.githubusercontent.com/94168395/202907018-714a6914-5aff-41e6-be57-0fccfc06852b.png)
 
+## TIMING DIGRAMS  
+![4](https://user-images.githubusercontent.com/94168395/202907030-95be143f-863e-47ac-b446-a5120545022d.png)
 
+## TRUTH TABLE 
+![6](https://user-images.githubusercontent.com/94168395/202907035-bccd379a-c3ee-45f7-91b2-8c9ee3128b86.png)
 
-### RTL LOGIC  
+## RESULTS 
 
-
-
-
-
-
-
-
-### TIMING DIGRAMS  
-
-
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
-
-### RESULTS 
+4 X1 multiplexer and 1X4 de multiplexer has been implemented using verilog and outputs are validated.
